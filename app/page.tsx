@@ -12,7 +12,7 @@ const narrativeRows = [
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-black text-[#daffde]">
+    <main className="relative min-h-screen bg-transparent text-current">
       <div className="fixed inset-0 z-0">
         <ParticleField />
       </div>

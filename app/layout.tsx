@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
+import ThemeToggleButton from "@/components/ThemeToggleButton"; // We will create this quick small file next!
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -29,12 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${urbanist.variable} h-full antialiased`}>
-      <body className="min-h-full bg-black text-[#daffde]">
+      <body className="min-h-full transition-colors duration-300">
         <div className="relative min-h-screen">
           <header className="fixed left-1/2 top-4 z-50 w-[min(1120px,calc(100%-1rem))] -translate-x-1/2 rounded-full border border-[#deff9a]/20 bg-black/40 px-3 py-2.5 backdrop-blur-md">
             <div className="flex items-center justify-between gap-3">
               <div className="text-sm font-semibold tracking-[0.32em] text-[#deff9a] uppercase">Tidimatso</div>
-              <nav className="flex max-w-[320px] flex-wrap items-center justify-end gap-1 text-[9px] md:max-w-none md:gap-2 md:text-xs">
+              <nav className="flex max-w-[450px] flex-wrap items-center justify-end gap-1 text-[9px] md:max-w-none md:gap-2 md:text-xs">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
@@ -44,6 +45,9 @@ export default function RootLayout({
                     {item.label}
                   </Link>
                 ))}
+                
+                {/* Clean Brutalist Toggle Button sitting cleanly in your nav array */}
+                <ThemeToggleButton />
               </nav>
             </div>
           </header>

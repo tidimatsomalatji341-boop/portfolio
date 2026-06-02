@@ -125,7 +125,7 @@ export default function ProjectsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-black text-[#daffde]">
+    <main className="min-h-screen bg-transparent text-current">
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-24 sm:px-6 lg:px-8 flex flex-col gap-12">
         
         {/* Main Section Header */}
