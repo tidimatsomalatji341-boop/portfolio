@@ -3,10 +3,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-// Updated with completely unique labels to prevent map errors
+// Upgraded with a direct Gmail web deep-link to bypass the native mail client trap
 const contactLinks = [
   { label: "WhatsApp Chat", value: "+27 75 439 0033", href: "https://wa.me/27754390033" },
-  { label: "Direct Email", value: "tidimatso.malatji01@gmail.com", href: "mailto:tidimatso.malatji01@gmail.com" },
+  { 
+    label: "Direct Email", 
+    value: "tidimatso.malatji01@gmail.com", 
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=tidimatso.malatji01@gmail.com" 
+  },
   { label: "GitHub Profile", value: "github.com/tidimatsomalatji341-boop", href: "https://github.com/tidimatsomalatji341-boop" },
   { label: "LinkedIn Connection", value: "linkedin.com/in/tidimatso-malatji", href: "https://www.linkedin.com/in/tidimatso-malatji-6bb5472a7/" },
   { label: "Instagram Handle", value: "@tidimatso_malatji341", href: "https://www.instagram.com/tidimatso_malatji341/" },
@@ -22,7 +26,6 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      // CRITICAL: Replace 'your_real_formspree_id' with your actual Formspree endpoint token string
       const response = await fetch("https://formspree.io/f/maqkrorj", {
         method: "POST",
         headers: {
