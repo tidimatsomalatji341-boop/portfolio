@@ -35,9 +35,16 @@ export default function ParticleField() {
     };
 
     const animate = () => {
+      const isLightTheme = document.body.classList.contains("light-theme");
+      
+      // Set colors based on theme
+      const particleColor = isLightTheme ? "rgba(100, 120, 140, 0.26)" : "rgba(222, 255, 154, 0.26)";
+      const lineColor = isLightTheme ? "rgba(80, 110, 130, 0.12)" : "rgba(222, 255, 154, 0.12)";
+      const mouseLineColor = isLightTheme ? "rgba(70, 100, 130, 0.2)" : "rgba(218, 255, 222, 0.2)";
+      
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = "rgba(222, 255, 154, 0.26)";
-      ctx.strokeStyle = "rgba(222, 255, 154, 0.12)";
+      ctx.fillStyle = particleColor;
+      ctx.strokeStyle = lineColor;
 
       nodes.forEach((node, index) => {
         node.x += node.vx;
@@ -63,7 +70,9 @@ export default function ParticleField() {
             ctx.beginPath();
             ctx.moveTo(px, py);
             ctx.lineTo(other.x * width, other.y * height);
-            ctx.strokeStyle = `rgba(222, 255, 154, ${0.06 + (1 - distance / 110) * 0.18})`;
+            const baseOpacity = isLightTheme ? 0.04 : 0.06;
+            const maxOpacity = isLightTheme ? 0.14 : 0.18;
+            ctx.strokeStyle = `rgba(${isLightTheme ? "80, 110, 130" : "222, 255, 154"}, ${baseOpacity + (1 - distance / 110) * maxOpacity})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -77,7 +86,9 @@ export default function ParticleField() {
             ctx.beginPath();
             ctx.moveTo(px, py);
             ctx.lineTo(pointer.x, pointer.y);
-            ctx.strokeStyle = `rgba(218, 255, 222, ${0.12 + (1 - mouseDistance / 120) * 0.2})`;
+            const baseOpacity = isLightTheme ? 0.08 : 0.12;
+            const maxOpacity = isLightTheme ? 0.16 : 0.2;
+            ctx.strokeStyle = `rgba(${isLightTheme ? "70, 100, 130" : "218, 255, 222"}, ${baseOpacity + (1 - mouseDistance / 120) * maxOpacity})`;
             ctx.lineWidth = 0.9;
             ctx.stroke();
           }

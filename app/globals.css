@@ -45,7 +45,7 @@ body.light-theme {
     radial-gradient(circle at top, rgba(218, 255, 222, 0.12), transparent 22%),
     radial-gradient(circle at bottom, rgba(250, 251, 252, 0.3), transparent 22%),
     #e6e8ec;
-  color: #121316;
+  color: #121316 !important;
 }
 
 body.light-theme * {
@@ -53,7 +53,7 @@ body.light-theme * {
 }
 
 body.light-theme [class*="bg-black"] {
-  background-color: rgba(226, 230, 235, 0.95) !important;
+  background-color: rgba(230, 232, 236, 0.95) !important;
 }
 
 body.light-theme [class*="bg-black/70"] {
@@ -134,6 +134,20 @@ body.light-theme [class*="border-[#deff9a]/20"] {
 
 body.light-theme [class*="hover:text-[#deff9a]"] {
   color: #65a30d !important;
+}
+
+body.light-theme header {
+  background-color: rgba(236, 239, 244, 0.4) !important;
+  border-color: rgba(100, 150, 120, 0.15) !important;
+}
+
+body.light-theme nav a {
+  color: #4b5563 !important;
+}
+
+body.light-theme nav a:hover {
+  color: #65a30d !important;
+  background-color: rgba(101, 163, 13, 0.08) !important;
 }
 
 ::-webkit-scrollbar {
