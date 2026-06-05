@@ -13,7 +13,7 @@ const narrativeRows = [
     label: "02 // THE DATA SPARK",
     title: "Why I Love Data Science",
     content:
-      "I realized that mathematics and statistics aren't just equations on a chalkboard—they are powerful tools used to find clear answers within massive pools of messy information. Seeing how data can be used to improve healthcare systems, understand climate trends, or help businesses make smarter decisions made me realize that data science is exactly where I want to focus my career.",
+      "I realized that mathematics and statistics aren't just equations on a chalkboard, they are powerful tools used to find clear answers within massive pools of messy information. Seeing how data can be used to improve healthcare systems, understand climate trends, or help businesses make smarter decisions made me realize that data science is exactly where I want to focus my career.",
   },
   {
     label: "03 // FUTURE OBJECTIVES",
