@@ -10,13 +10,19 @@ const narrativeRows = [
       "Growing up, I was always fascinated by logic, patterns, and problem-solving. This naturally led me to pursue a BSc in Mathematics and Statistics with Computer Science at the University of the Western Cape (UWC). Now in my second year, I am building a strong foundation in mathematical theory, statistical methods, and computer programming.",
   },
   {
-    label: "02 // THE DATA SPARK",
-    title: "Why I Love Data Science",
+    label: "02 // ELITE FELLOWSHIP & SPONSORSHIP",
+    title: "Mastercard Foundation Scholar",
     content:
-      "I realized that mathematics and statistics aren't just equations on a chalkboard, they are powerful tools used to find clear answers within massive pools of messy information. Seeing how data can be used to improve healthcare systems, understand climate trends, or help businesses make smarter decisions made me realize that data science is exactly where I want to focus my career.",
+      "I am incredibly honored to be vetted, selected, and sponsored as a Mastercard Foundation Scholar at UWC. This competitive fellowship recognizes high-achieving undergraduates demonstrating strong quantitative capability, leadership potential, and a deep commitment to regional technological innovation. Beyond financial sponsorship, the program serves as an active workspace for cross-functional project coordination and advanced professional leadership tracks.",
   },
   {
-    label: "03 // FUTURE OBJECTIVES",
+    label: "03 // THE DATA SPARK",
+    title: "Why I Love Data Science",
+    content:
+      "I realized that mathematics and statistics aren't just equations on a chalkboard—they are powerful tools used to find clear answers within massive pools of messy information. Seeing how data can be used to improve healthcare systems, understand climate trends, or help businesses make smarter decisions made me realize that data science is exactly where I want to focus my career.",
+  },
+  {
+    label: "04 // FUTURE OBJECTIVES",
     title: "My Goals",
     content:
       "I want to become a skilled data professional who builds clean, reliable data systems and helpful predictive models. My ultimate goal is to use my statistics and coding skills to work on real-world projects that solve actual human, environmental, or operational challenges.",
@@ -38,8 +44,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Quick Stats Grid - Simple and Honest */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Quick Stats Grid - Simple, Honest, and Branded */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-2xl border border-white/5 bg-white/5 p-4">
               <p className="text-[9px] uppercase tracking-wider text-[#deff9a]">[ CURRENT LOCATION ]</p>
               <p className="mt-2 text-sm font-medium text-white">Cape Town, South Africa</p>
@@ -52,29 +58,64 @@ export default function AboutPage() {
               <p className="text-xs text-[#daffde]/60">Year 2 Student</p>
             </div>
             
-            <div className="rounded-2xl border border-white/5 bg-white/5 p-4 sm:col-span-2 lg:col-span-1">
+            <div className="rounded-2xl border border-white/5 bg-white/5 p-4">
               <p className="text-[9px] uppercase tracking-wider text-[#deff9a]">[ CORE MAJORS ]</p>
               <p className="mt-2 text-sm font-medium text-[#deff9a]">Mathematics & Statistics</p>
               <p className="text-xs text-[#daffde]/60">with Computer Science</p>
+            </div>
+
+            {/* High-Contrast Visible Badge Card Component */}
+            <div className="rounded-2xl border border-amber-400/20 bg-amber-500/5 p-4 flex items-center justify-between gap-4">
+              <div className="flex flex-col">
+                <p className="text-[9px] uppercase tracking-wider text-amber-400 font-mono">[ PROGRAM SPONSOR ]</p>
+                <p className="mt-2 text-sm font-bold text-white leading-tight">Mastercard Foundation</p>
+                <p className="text-[11px] text-amber-400/80 font-mono mt-0.5">Verified Scholar</p>
+              </div>
+              
+              {/* High-Contrast White Background Container to force logo visibility */}
+              <div className="shrink-0 bg-white p-2 rounded-xl h-12 w-16 flex items-center justify-center shadow-inner">
+                <img 
+                  src="/MCSPL.jpg" 
+                  alt="MCF Logo" 
+                  className="h-full w-full object-contain select-none"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      parent.className = "shrink-0 bg-white/5 border border-white/10 p-1.5 rounded-xl h-12 w-12 flex items-center justify-center";
+                      parent.innerHTML = '<span class="text-[8px] font-mono font-bold text-amber-400">MCF</span>';
+                    }
+                  }}
+                />
+              </div>
             </div>
           </div>
 
           {/* Narrative Content Blocks */}
           <div className="flex max-w-4xl flex-col gap-6">
-            {narrativeRows.map((row, index) => (
-              <motion.article
-                key={row.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.24 }}
-                transition={{ duration: 0.55, delay: index * 0.08 }}
-                className="rounded-[2rem] border border-[#deff9a]/20 bg-black/70 p-6"
-              >
-                <p className="text-[10px] uppercase tracking-[0.24em] text-[#deff9a]">{row.label}</p>
-                <h2 className="mt-3 text-2xl font-semibold text-white">{row.title}</h2>
-                <p className="mt-4 text-base leading-8 text-[#daffde]/80">{row.content}</p>
-              </motion.article>
-            ))}
+            {narrativeRows.map((row, index) => {
+              const isScholarship = row.label.includes("FELLOWSHIP");
+              return (
+                <motion.article
+                  key={row.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.24 }}
+                  transition={{ duration: 0.55, delay: index * 0.08 }}
+                  className={`rounded-[2rem] p-6 border transition-all ${
+                    isScholarship 
+                      ? "border-amber-400/20 bg-gradient-to-r from-amber-500/5 to-transparent shadow-[0_0_30px_rgba(251,191,36,0.02)]" 
+                      : "border-[#deff9a]/20 bg-black/70"
+                  }`}
+                >
+                  <p className={`text-[10px] uppercase tracking-[0.24em] ${isScholarship ? "text-amber-400" : "text-[#deff9a]"}`}>
+                    {row.label}
+                  </p>
+                  <h2 className="mt-3 text-2xl font-semibold text-white">{row.title}</h2>
+                  <p className="mt-4 text-base leading-8 text-[#daffde]/80">{row.content}</p>
+                </motion.article>
+              );
+            })}
           </div>
 
           {/* CV/Resume Download Terminal Block */}
