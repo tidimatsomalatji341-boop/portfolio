@@ -33,10 +33,10 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black text-[#daffde]">
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-24 sm:px-6 lg:px-8">
-        <div className="rounded-[2.5rem] border border-[#deff9a]/10 bg-white/5 p-6 backdrop-blur-md flex flex-col gap-8">
+        <div className="rounded-[2.5rem] border border-[#deff9a]/10 bg-white/5 p-6 backdrop-blur-md flex flex-col items-center gap-8 w-full">
           
           {/* Header Section */}
-          <div className="border-b border-neutral-800 pb-4">
+          <div className="border-b border-neutral-800 pb-4 w-full max-w-4xl">
             <p className="text-[10px] uppercase tracking-[0.3em] text-[#deff9a]">ABOUT ME / ACADEMIC PROFILE</p>
             <h1 className="mt-2 text-4xl font-bold text-white md:text-5xl">My Academic & Data Journey</h1>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[#daffde]/75">
@@ -44,8 +44,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Quick Stats Grid - Simple, Honest, and Clean with the Gold Card integrated */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Quick Stats Grid - Centered and perfectly aligned */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 w-full max-w-4xl">
             <div className="rounded-2xl border border-white/5 bg-white/5 p-4">
               <p className="text-[9px] uppercase tracking-wider text-[#deff9a]">[ CURRENT LOCATION ]</p>
               <p className="mt-2 text-sm font-medium text-white">Cape Town, South Africa</p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
               <p className="text-xs text-[#daffde]/60">with Computer Science</p>
             </div>
 
-            {/* The Gold Card component, minus the logo, with correct text and gold accent */}
+            {/* The Gold Card component with correct text and gold accent */}
             <div className="rounded-2xl border border-amber-400/20 bg-amber-500/5 p-4 flex flex-col justify-between">
               <div>
                 <p className="text-[9px] uppercase tracking-wider text-amber-400 font-mono">[ FUNDING & AWARDS ]</p>
@@ -74,8 +74,8 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Narrative Content Blocks */}
-          <div className="flex max-w-4xl flex-col gap-6">
+          {/* Narrative Content Blocks - Perfectly Centered */}
+          <div className="flex w-full max-w-4xl flex-col gap-6">
             {narrativeRows.map((row, index) => {
               const isScholarship = row.label.includes("ACADEMIC SCHOLARSHIP");
               return (
@@ -85,7 +85,7 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.24 }}
                   transition={{ duration: 0.55, delay: index * 0.08 }}
-                  className={`rounded-[2rem] p-6 border transition-all ${
+                  className={`rounded-[2rem] p-6 border transition-all w-full ${
                     isScholarship 
                       ? "border-amber-400/20 bg-gradient-to-r from-amber-500/5 to-transparent shadow-[0_0_30px_rgba(251,191,36,0.02)]" 
                       : "border-[#deff9a]/20 bg-black/70"
@@ -107,7 +107,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="rounded-[2rem] border border-dashed border-neutral-800 bg-white/[0.01] p-6 lg:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mt-4"
+            className="rounded-[2rem] border border-dashed border-neutral-800 bg-white/[0.01] p-6 lg:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mt-4 w-full max-w-4xl"
           >
             <div className="flex flex-col gap-2 max-w-xl">
               <div className="flex items-center gap-3 font-mono text-[10px] text-neutral-500">
