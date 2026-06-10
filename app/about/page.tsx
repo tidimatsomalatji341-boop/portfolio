@@ -10,10 +10,10 @@ const narrativeRows = [
       "Growing up, I was always fascinated by logic, patterns, and problem-solving. This naturally led me to pursue a BSc in Mathematics and Statistics with Computer Science at the University of the Western Cape (UWC). Now in my second year, I am building a strong foundation in mathematical theory, statistical methods, and computer programming.",
   },
   {
-    label: "02 // ELITE FELLOWSHIP & SPONSORSHIP",
-    title: "Mastercard Foundation Scholar",
+    label: "02 // ACADEMIC SCHOLARSHIP",
+    title: "MasterCard Foundation Scholarship",
     content:
-      "I am incredibly honored to be vetted, selected, and sponsored as a Mastercard Foundation Scholar at UWC. This competitive fellowship recognizes high-achieving undergraduates demonstrating strong quantitative capability, leadership potential, and a deep commitment to regional technological innovation. Beyond financial sponsorship, the program serves as an active workspace for cross-functional project coordination and advanced professional leadership tracks.",
+      "I am honored to be selected as a recipient of the MasterCard Foundation Scholarship at UWC. This program recognizes high-achieving undergraduates demonstrating strong quantitative capability, leadership potential, and a deep commitment to regional development. Beyond academic support, the program focuses on strategic skill development, community engagement, and advanced professional pathways.",
   },
   {
     label: "03 // THE DATA SPARK",
@@ -44,7 +44,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Quick Stats Grid - Simple, Honest, and Branded */}
+          {/* Quick Stats Grid - Simple, Honest, and Clean with the Gold Card integrated */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-2xl border border-white/5 bg-white/5 p-4">
               <p className="text-[9px] uppercase tracking-wider text-[#deff9a]">[ CURRENT LOCATION ]</p>
@@ -64,29 +64,12 @@ export default function AboutPage() {
               <p className="text-xs text-[#daffde]/60">with Computer Science</p>
             </div>
 
-            {/* High-Contrast Visible Badge Card Component */}
-            <div className="rounded-2xl border border-amber-400/20 bg-amber-500/5 p-4 flex items-center justify-between gap-4">
-              <div className="flex flex-col">
-                <p className="text-[9px] uppercase tracking-wider text-amber-400 font-mono">[ PROGRAM SPONSOR ]</p>
-                <p className="mt-2 text-sm font-bold text-white leading-tight">Mastercard Foundation</p>
-                <p className="text-[11px] text-amber-400/80 font-mono mt-0.5">Verified Scholar</p>
-              </div>
-              
-              {/* High-Contrast White Background Container to force logo visibility */}
-              <div className="shrink-0 bg-white p-2 rounded-xl h-12 w-16 flex items-center justify-center shadow-inner">
-                <img 
-                  src="/MCSPL.jpg" 
-                  alt="MCF Logo" 
-                  className="h-full w-full object-contain select-none"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      parent.className = "shrink-0 bg-white/5 border border-white/10 p-1.5 rounded-xl h-12 w-12 flex items-center justify-center";
-                      parent.innerHTML = '<span class="text-[8px] font-mono font-bold text-amber-400">MCF</span>';
-                    }
-                  }}
-                />
+            {/* The Gold Card component, minus the logo, with correct text and gold accent */}
+            <div className="rounded-2xl border border-amber-400/20 bg-amber-500/5 p-4 flex flex-col justify-between">
+              <div>
+                <p className="text-[9px] uppercase tracking-wider text-amber-400 font-mono">[ FUNDING & AWARDS ]</p>
+                <p className="mt-2 text-sm font-bold text-white leading-tight">MasterCard Foundation</p>
+                <p className="text-[11px] text-amber-400/80 font-mono mt-0.5">Scholarship Recipient</p>
               </div>
             </div>
           </div>
@@ -94,7 +77,7 @@ export default function AboutPage() {
           {/* Narrative Content Blocks */}
           <div className="flex max-w-4xl flex-col gap-6">
             {narrativeRows.map((row, index) => {
-              const isScholarship = row.label.includes("FELLOWSHIP");
+              const isScholarship = row.label.includes("ACADEMIC SCHOLARSHIP");
               return (
                 <motion.article
                   key={row.label}
@@ -142,7 +125,7 @@ export default function AboutPage() {
             <a
               href="/Tidimatso_Malatji_CV.pdf"
               download="Tidimatso_Malatji_CV.pdf"
-              className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#deff9a]/10 border border-[#deff9a]/20 px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-[#deff9a] transition-all hover:bg-[#deff9a] hover:text-black hover:border-transparent shrink-0 group shadow-md"
+              className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#deff9a]/10 border border-[#deff9a]/20 px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-[#daffde] transition-all hover:bg-[#deff9a] hover:text-black hover:border-transparent shrink-0 group shadow-md"
             >
               <svg 
                 className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform duration-200" 
